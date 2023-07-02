@@ -1,7 +1,9 @@
 import { Workbox } from 'workbox-window';
+import { header } from './header';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
+
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -23,6 +25,14 @@ if (typeof editor === 'undefined') {
   loadSpinner();
 }
 
+if (module.hot) {
+  module.hot.accept((err) => {
+    if (err) {
+      console.error('Cannot apply HMR update.', err);
+    }
+  })
+}
+
 // Check if service workers are supported
 if ('serviceWorker' in navigator) {
   // register workbox service worker
@@ -30,4 +40,4 @@ if ('serviceWorker' in navigator) {
   workboxSW.register();
 } else {
   console.error('Service workers are not supported in this browser.');
-}
+};
