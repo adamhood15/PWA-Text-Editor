@@ -28,19 +28,26 @@ module.exports = () => {
         title: 'Webpack Plugin'
       }),
      
-      new WorkboxPlugin.GenerateSW({
-        swDest: './src-sw.js'
-
-      })
-      // // Injects our custom service worker
-      // new InjectManifest({
-
-      // }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js'
+      }),
 
       // // Creates a manifest.json file.
-      // new WebpackPwaManifest({
-   
-      // }),
+      new WebpackPwaManifest({
+        name: 'J.A.T.E. Text Editor',
+        short_name: 'J.A.T.E.',
+        description: 'J.A.T.E. Text Editor',
+        background_color: '#ffffff',
+        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons') // multiple sizes
+          },
+        ]
+      }),
       
     ],
 
