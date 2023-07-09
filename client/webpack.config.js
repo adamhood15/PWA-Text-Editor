@@ -4,8 +4,6 @@ const path = require('path');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
     return {
@@ -43,7 +41,7 @@ module.exports = () => {
                 background_color: '#ffffff',
                 start_url: '/',
                 publicPath: '/',
-                crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+                crossorigin: 'use-credentials', 
                 icons: [
                     {
                         src: path.resolve('src/images/logo.png'),

@@ -1,6 +1,7 @@
 // Import methods to save and get data from the indexedDB database in './database.js'
 import { getDb, putDb } from './database';
 import { header } from './header';
+let arr = [];
 
 export default class {
   constructor() {
@@ -30,6 +31,7 @@ export default class {
     });
 
     this.editor.on('change', () => {
+      console.log(this.editor.getValue());
       localStorage.setItem('content', this.editor.getValue());
     });
 

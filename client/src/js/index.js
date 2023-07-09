@@ -16,7 +16,7 @@ const loadSpinner = () => {
   <div class="loading-spinner" />
   </div>
   `;
-  main.appendChild(spinner);
+  main.appendChild(spinner);``
 };
 
 const editor = new Editor();
